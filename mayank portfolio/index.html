@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mayank Aneja | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: #0d0d1a;
+      color: #e0e0ff;
+    }
+    nav {
+      background: #1f1f3d;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 0 10px #00f2ff;
+    }
+    nav h1 {
+      color: #00f2ff;
+      font-size: 1.5rem;
+    }
+    nav a {
+      color: #e0e0ff;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #00f2ff;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #1f1f3d, #0d0d1a);
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    header img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #00f2ff;
+      box-shadow: 0 0 20px #00f2ff;
+    }
+    header .info {
+      flex: 1;
+      min-width: 280px;
+    }
+    header h1 {
+      font-size: 3rem;
+      color: #00f2ff;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+    .cta a {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.5rem;
+      background: #00f2ff;
+      color: #0d0d1a;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      margin-right: 1rem;
+    }
+    .cta a:hover {
+      background: #00c2d4;
+    }
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2rem;
+      color: #00f2ff;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #00f2ff;
+      display: inline-block;
+    }
+    #about p {
+      background: rgba(255,255,255,0.05);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,242,255,0.2);
+      line-height: 1.6;
+    }
+    .skill, .cert {
+      background: rgba(255,255,255,0.05);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px rgba(0,242,255,0.1);
+    }
+    .cert:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 15px rgba(0,242,255,0.3);
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,242,255,0.1);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .project-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 15px rgba(0,242,255,0.3);
+    }
+    .project-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .project-card .content {
+      padding: 1rem;
+    }
+    .project-card .content h3 {
+      color: #00f2ff;
+      margin-bottom: 0.5rem;
+    }
+    .project-card .content p {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    #contact p, #contact a {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+      color: #e0e0ff;
+    }
+    #contact a:hover {
+      color: #00f2ff;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #1f1f3d;
+      color: #00f2ff;
+    }
+    .socials a {
+      color: #00f2ff;
+      margin: 0 0.5rem;
+      font-size: 1.5rem;
+      transition: 0.3s;
+    }
+    .socials a:hover {
+      color: white;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: rgba(255,255,255,0.05);
+      border: 2px solid #00f2ff;
+      border-radius: 15px;
+      padding: 2rem;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 0 20px #00f2ff;
+      color: #e0e0ff;
+      position: relative;
+    }
+    .modal-content h3 {
+      margin-bottom: 1rem;
+      color: #00f2ff;
+    }
+    .modal-content input, .modal-content textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+    .modal-content button {
+      background: #00f2ff;
+      color: #0d0d1a;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .close-btn {
+      position: absolute;
+      top: 15px; right: 20px;
+      font-size: 1.5rem;
+      color: #fff;
+      cursor: pointer;
+    }
+    .skill:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px rgba(0,242,255,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>Mayank Aneja</h1>
+    <div>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <img src="assets/image.jpg" alt="Mayank" />
+    <div class="info">
+      <h1>Mayank Aneja</h1>
+      <p>🚀 Full-Stack Developer | MCA @ Chandigarh University | MERN Stack Enthusiast</p>
+      <div class="cta">
+        <a href="#" onclick="openModal()">Hire Me</a>
+        <a href="assets/24MCA20481_Mayank aneja.pdf" target="_blank">Download Resume</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m a passionate Full-Stack Developer specializing in the MERN stack. Currently pursuing MCA at Chandigarh University, I thrive on building scalable web applications, solving real-world problems, and crafting beautiful user experiences.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+      <div class="skill"><h3 style="color:#00f2ff;"><i class="fas fa-code"></i> Languages</h3><p>Java, Python, C++, JavaScript, HTML, CSS</p></div>
+      <div class="skill"><h3 style="color:#00f2ff;"><i class="fas fa-layer-group"></i> Frameworks</h3><p>React.js, Node.js, Express.js, Bootstrap</p></div>
+      <div class="skill"><h3 style="color:#00f2ff;"><i class="fas fa-database"></i> Databases</h3><p>MongoDB, MySQL, Oracle</p></div>
+      <div class="skill"><h3 style="color:#00f2ff;"><i class="fas fa-tools"></i> Tools</h3><p>Git, GitHub, VS Code, Linux, Tomcat, MS Office</p></div>
+      <div class="skill"><h3 style="color:#00f2ff;"><i class="fas fa-brain"></i> Concepts</h3><p>DSA, OOPS, DBMS, CN, System Design</p></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="skill"><h3 style="color:#00f2ff;"><i class="fas fa-university"></i> Chandigarh University</h3><p>📍 Mohali, Chandigarh<br>🎓 MCA<br>📅 Aug 2024 – Present</p></div>
+    <div class="skill"><h3 style="color:#00f2ff;"><i class="fas fa-graduation-cap"></i> Kurukshetra University</h3><p>📍 Panipat<br>🎓 B.Com<br>📅 Aug 2021 – Aug 2024</p></div>
+    <div class="skill"><h3 style="color:#00f2ff;"><i class="fas fa-school"></i> 12th - CBSE</h3><p>📍 Panipat<br>📅 Apr 2020 – Mar 2021</p></div>
+    <div class="skill"><h3 style="color:#00f2ff;"><i class="fas fa-school"></i> 10th - CBSE</h3><p>📍 Panipat<br>📅 Apr 2018 – Mar 2019</p></div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card"><img src="assets/pic1.png" alt="E-Commerce"><div class="content"><h3>E-Commerce Website</h3><p>MERN stack with Razorpay.</p></div></div>
+      <div class="project-card"><img src="assets/Picture2.png" alt="Travel"><div class="content"><h3>Tour & Travel Website</h3><p>Bookings & admin panel.</p></div></div>
+      <div class="project-card"><img src="assets/Picture3.png" alt="Hospital"><div class="content"><h3>Hospital System</h3><p>Appointment & registration.</p></div></div>
+      <div class="project-card"><img src="assets/pic 4.png" alt="Weather"><div class="content"><h3>Weather App</h3><p>JS + OpenWeatherMap API</p></div></div>
+      <div class="project-card"><img src="assets/pic5.png" alt="Todo"><div class="content"><h3>Todo List</h3><p>HTML/CSS/JS task manager</p></div></div>
+      <div class="project-card"><img src="assets/pic6.png" alt="Maze"><div class="content"><h3>Maze Game</h3><p>Python + Pygame 2D maze</p></div></div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="cert">🧠 Basic C Sharp - Infosys Springboard, Oct 2024</div>
+    <div class="cert">⚛️ ReactJS - Infosys Springboard, Jan 2025</div>
+    <div class="cert">🌐 Web Dev Fundamentals - IBM SkillsBuild, Jun 2025</div>
+    <div class="cert">🚀 Career Edge - TCS iON, Jul 2025</div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:mayankaneja2003@gmail.com">mayankaneja2003@gmail.com</a></p>
+    <p><i class="fas fa-phone"></i> Phone: +91-7206910100</p>
+    <p><i class="fas fa-map-marker-alt"></i> Location: Panipat, Haryana</p>
+    <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://linkedin.com/in/mayank-aneja-866015331" target="_blank">linkedin.com/in/mayank-aneja</a></p>
+  </section>
+
+  <footer>
+    <p>Made with ❤️ by Mayank Aneja</p>
+    <div class="socials">
+      <a href="https://github.com/mayank10021" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/mayank-aneja-866015331" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <p>&copy; 2025 Mayank Aneja. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal Form -->
+  <div class="modal" id="hireModal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h3>Hire Me</h3>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Project Image Modal -->
+  <div class="modal" id="imgModal" onclick="closeImgModal()">
+    <div class="modal-content" style="max-width:90%; padding: 1rem; background: none; box-shadow: none;">
+      <img id="imgInModal" src="" alt="Project" style="max-width: 100%; max-height: 80vh; border-radius: 10px; box-shadow: 0 0 20px #00f2ff;">
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('hireModal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('hireModal').style.display = 'none';
+    }
+    document.querySelectorAll('.project-card img').forEach(img => {
+      img.addEventListener('click', function () {
+        const modalImg = document.getElementById('imgInModal');
+        modalImg.src = this.src;
+        document.getElementById('imgModal').style.display = 'flex';
+      });
+    });
+    function closeImgModal() {
+      document.getElementById('imgModal').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
