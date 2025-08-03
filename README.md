@@ -28,9 +28,7 @@ A **modern and responsive portfolio website** built using HTML, CSS, and JavaScr
 
 mayank-portfolio/
 ├── index.html
-├── style.css
-├── script.js
-├── images/
+├── assets/
 └── README.md
 
 ---
