@@ -53,7 +53,7 @@ You can preview the website by opening `index.html` in your browser or host it o
 **Mayank Aneja**  
 📍 MCA | Chandigarh University  
 🔗 [GitHub](https://github.com/mayank10021)  
-📧 Email: _[your-email@example.com]_  
+📧 Email: _[Mayankaneja2003@gmail.com]_  
 📱 Location: Panipat, Haryana, India
 
 ---
